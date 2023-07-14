@@ -5,10 +5,14 @@ import { getFormattedDate, emotionList } from '../util';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button'
 import EmotionItem from './EmotionItem';
-// 테스트
 
-
-const Editor = ( { initData, onSubmit, onCreate } ) => {
+const Editor = ( { initData, onSubmit } ) => {
+  const navigate = useNavigate();
+  const [state, setState] = useState({
+    date: getFormattedDate(new Date()),
+    emotionId: 3,
+    content: '',
+  });
 
   useEffect(() => {
   if (initData) {
@@ -18,14 +22,6 @@ const Editor = ( { initData, onSubmit, onCreate } ) => {
     });
   }
   }, [initData]);
-
-  const navigate = useNavigate();
-  
-  const [state, setState] = useState({
-    date: getFormattedDate(new Date()),
-    emotionId: 3,
-    content: '',
-  });
 
   const handleChangeDate = (e) => {
     setState({
@@ -42,7 +38,7 @@ const Editor = ( { initData, onSubmit, onCreate } ) => {
   };
 
   const handleSubmit = () => {
-    onSubmit(state)
+    onSubmit(state);
   };
   
   const handleGoBack = () => {
@@ -99,10 +95,6 @@ const Editor = ( { initData, onSubmit, onCreate } ) => {
         text={'작성완료'}
         type={'positive'}
         onClick={handleSubmit}
-        />
-        <Button 
-        text={'테스트콘솔확인'}
-        onClick={() => onCreate()}
         />
       </div>
     </div>

@@ -82,3 +82,12 @@ export const emotionList = [
     img: getEmotionImgById(5),
   },
 ];
+
+// 날짜에 맞는 데이터 필터링을 하기위한 함수
+export const getMonthRangeByDate = (date) => {
+  const beginTimeStamp = new Date(date.getFullYear(), date.getMonth(), 1).getTime();
+  // 자바스크립트의 문법 : 월 = 다음달 월에 0일 23시 59분 59초
+  // 끝나는 날짜
+  const endTimeStamp = new Date(date.getFullYear(), date.getMonth() + 1, 0, 23, 59, 59)
+  return {beginTimeStamp, endTimeStamp}
+}
