@@ -1,4 +1,3 @@
-import React from "react";
 import { useContext, useState, useEffect } from "react"
 import { DiaryStateContext } from "../App"
 import { useNavigate } from "react-router-dom";

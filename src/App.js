@@ -35,9 +35,9 @@ export const DiaryDispatchContext = React.createContext();
       // 수정됐을떄의 기능
       case "UPDATE": {
         // 수정되는 아이디 값과 같다면 새로운 걸로 바꿔주고 아니라면 기존값으로
-        const newState = state.map((it) => (
+        const newState = state.map((it) => 
           String(it.id) === String(action.data.id) ? {...action.data} : it
-        ));
+        );
         localStorage.setItem("diary", JSON.stringify(newState));
         console.log(newState);
         return newState;

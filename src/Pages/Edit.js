@@ -20,9 +20,11 @@ const Edit = () => {
       navigate('/', {replace: true});
     }
   }
+  // onSubmit() 함수안에 들어가는 onUpdate()의 인자값 매칭오류
+  // onsubmit() 안에 data가 들어오면
   const onSubmit = (data) => {
-    const {targetId, date, content, emotionId} = data;
-    onUpdate(targetId, date, content, emotionId);
+    const {date, content, emotionId} = data;
+    onUpdate(id, date, content, emotionId);
     navigate('/', {replace: true});
   }
   if(!data) {
